@@ -11,6 +11,12 @@
         let myBoolean = false;
         (num % 100 === 0) ? myBoolean = num % 400 === 0 : myBoolean = num % 4 === 0;
         return myBoolean;
+    },
+    nonCanonicalDna(str){
+        let text = "";
+        let myRegex = /CTAG/;
+        myRegex.match(str);
+        return text;
     } 
 }
 export default myFunctions;
