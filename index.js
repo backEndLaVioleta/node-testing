@@ -15,7 +15,7 @@
     nonCanonicalDna(str){
         let text = "";
         let myRegex = /CTAG/;
-        myRegex.match(str);
+        console.log(myRegex.match(str));
         return text;
     } 
 }

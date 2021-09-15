@@ -22,7 +22,7 @@ test('Is not a leap year, therefore returns false', () => {
 // three
 test('Canonical DNA: strings accepted should be C, T, A and G only', () => {
     let text = new RegExp[CTAG];
-    expect(myFunctions.nonCanonicalDna()).toMatch(text);
+    expect(myFunctions.nonCanonicalDna("GTCA")).toMatch(text);
 })
 
 // https://stackoverflow.com/questions/1027224/how-can-i-test-if-a-letter-in-a-string-is-uppercase-or-lowercase-using-javascrip
