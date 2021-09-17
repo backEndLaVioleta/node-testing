@@ -13,10 +13,19 @@
         return myBoolean;
     },
     nonCanonicalDna(str){
-        let text = "";
-        let myRegex = /CTAG/;
-        console.log(myRegex.match(str));
-        return text;
-    } 
+        let text = ['C', 'T', 'G', 'A'];
+        let newStr = "";
+        for(let i = 0; i < str.length; i++){
+          (text.indexOf(str[i]) !== -1) ? newStr = newStr + str[i] :
+          (str == "") ? newStr = "" : undefined;
+        }
+
+        return newStr;
+    },
+    sumArray(arr){
+      let sum = 0;
+      sum = arr.map((el) => parseInt(el)).filter((e) => (Number.isInteger(e) && (e > 0))).reduce((a,b) => a + b, 0);
+      return sum;
+    }
 }
 export default myFunctions;
