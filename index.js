@@ -23,9 +23,39 @@
         return newStr;
     },
     sumArray(arr){
-      let sum = 0;
-      sum = arr.map((el) => parseInt(el)).filter((e) => (Number.isInteger(e) && (e > 0))).reduce((a,b) => a + b, 0);
+      let sum = arr.map((el) => parseInt(el)).filter((e) => (Number.isInteger(e) && (e > 0))).reduce((a,b) => a + b, 0);
       return sum;
+    },
+    /* maxNumber(arr){
+      let counter = 0;
+      let maxCount = 0;
+      
+      arr.forEach((number) =>{
+        if(number != 0 && number != 1) {
+          throw new Error(-1);
+        } 
+        if(number == 1) {
+          counter += +number;
+          maxCount = Math.max(maxCount, counter);
+        } else if(number == 0){
+          // helpMe = true;
+          counter = 0;
+          console.log(counter);
+        }
+      })
+      return maxCount;
+    } */
+     maxNumber(arr){
+      if (/[^0-1]/g.test(arr.join('')))
+        throw new Error(-1); 
+
+      return (arr.join('')
+                 .split('0')
+                 .reduce((acumulador, elemento)=> Math.max(acumulador, elemento.length), 0)); 
     }
+    // tactica
+
 }
 export default myFunctions;
+
+

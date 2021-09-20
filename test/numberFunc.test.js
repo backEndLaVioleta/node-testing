@@ -53,13 +53,50 @@ test('sumArray() shouldn´t sum any negative values', () => {
 test('sumArray() should convert string numbers into integer', () => {
   var arr = [-10, "5", -40, "25"];
   expect(myFunctions.sumArray(arr)).toEqual(30);
-})
+});
 test('sumArray() shouldn´t convert any NaN', () => {
   var arr = [-10, "hola", -40, "25"];
   expect(myFunctions.sumArray(arr)).toEqual(25);
+});
+// count consecutive one
+test('[1,1,1] should return 3', () => {
+  var arr = [1,1,1];
+  expect(myFunctions.maxNumber(arr)).toBe(3);
+});
+test('[1,1,1,0] should return 3', () => {
+  var arr = [1,1,1,0];
+  expect(myFunctions.maxNumber(arr)).toBe(3);
+});
+test('[1,1,1,0] should return 4', () => {
+  var arr = [1,1,1,1];
+  expect(myFunctions.maxNumber(arr)).toBe(4);
+});
+
+// if 0, count ones straight
+test('[1,1,0,1] should return 2', () => {
+  var arr = [1,1,0,1];
+  expect(myFunctions.maxNumber(arr)).toBe(2);
+});
+// if secuence of ones, return bigger array of ones
+test('[1,1,0,1,1,1] should return 2', () => {
+  var arr = [1,1,0,1,1,1];
+  expect(myFunctions.maxNumber(arr)).toBe(3);
+});
+// if neither 1 or 0 error -1
+test('[1,1,"e",1,1,1] should return -1', () => {
+  var arr = [1,1,"e",1,1,1];
+  const err = new Error(-1)
+  expect(() => myFunctions.maxNumber(arr)).toThrow(err);
+});
+test('[1,"e",0,1] should return -1',()=>{
+  const error = new Error(-1);
+  expect(() => myFunctions.maxNumber([1,"e",0,1])).toThrow(error);
+  
 })
 // https://stackoverflow.com/questions/1027224/how-can-i-test-if-a-letter-in-a-string-is-uppercase-or-lowercase-using-javascrip
 
 // https://stackoverflow.com/questions/50920180/filter-a-javascript-array-of-strings-matching-a-sequence-of-characters
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 
 
